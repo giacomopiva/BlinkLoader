@@ -11,7 +11,7 @@ Make sure to check "Copy items if needed".
 
 Usage
 =======
-To create a new loader just instantiate a BlinkLoader class:
+To create a new loader just instantiate a BlinkLoader object:
 
     let loader = BlinkLoader(size: 100,
                             color: UIColor.lightGrayColor(),
