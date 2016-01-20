@@ -2,7 +2,7 @@ BlinkLoader
 =====
 A nice loader 
 
-<img src="https://raw.githubusercontent.com/giacomopiva/BlinkLoader/master/screenshot.png" alt="BlinkLoader" style="max-width:100%;">
+<img src="https://raw.githubusercontent.com/giacomopiva/BlinkLoader/master/screenshot.jpg" alt="BlinkLoader" style="max-width:100%;">
 
 Installation
 ==========
