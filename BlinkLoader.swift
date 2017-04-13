@@ -22,32 +22,32 @@ class BlinkLoader: UIView {
     init(size: Double, color: UIColor, backgroundColor: UIColor, toColor: UIColor, content: Character) {
         self.toColor = toColor
         
-        container = UIView(frame: CGRectMake(0, 0, CGFloat(size), CGFloat(size)))
-        container.backgroundColor = UIColor.clearColor()
+        container = UIView(frame: CGRect(x: 0, y: 0, width: CGFloat(size), height: CGFloat(size)))
+        container.backgroundColor = UIColor.clear
         
-        loader = UIView(frame: CGRectMake(0, 0, container.frame.size.width*0.8, container.frame.size.width*0.8))
+        loader = UIView(frame: CGRect(x: 0, y: 0, width: container.frame.size.width*0.8, height: container.frame.size.width*0.8))
         loader.center = CGPoint(x: container.frame.size.width/2, y: container.frame.size.height/2)
         loader.backgroundColor = backgroundColor
         loader.layer.borderWidth = CGFloat(loader.frame.size.width*0.05)
-        loader.layer.borderColor = color.CGColor
+        loader.layer.borderColor = color.cgColor
         loader.layer.cornerRadius = CGFloat(loader.frame.size.width/2)
         loader.layer.masksToBounds = true
         
         let label = UILabel(frame: container.frame)
         label.center = CGPoint(x: container.bounds.width/2, y: container.bounds.height/2)
         label.text = "\(content)"
-        label.font = UIFont.systemFontOfSize(container.bounds.width/3)
+        label.font = UIFont.systemFont(ofSize: container.bounds.width/3)
 
         label.textColor = color
-        label.textAlignment = .Center
+        label.textAlignment = .center
         
         container.addSubview(loader)
         container.addSubview(label)
         
-        super.init(frame: CGRectMake(0, 0, CGFloat(size), CGFloat(size)))
+        super.init(frame: CGRect(x: 0, y: 0, width: CGFloat(size), height: CGFloat(size)))
     }
     
-    func start(view: UIView, animated: Bool = false) {
+    func start(_ view: UIView, animated: Bool = false) {
         if (isRunning) {
             return
         }
@@ -59,15 +59,15 @@ class BlinkLoader: UIView {
         
         if (animated) {
             container.alpha = 0
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.container.alpha = 1.0
             })
         }
     }
     
-    func stop(animated: Bool = false) {
+    func stop(_ animated: Bool = false) {
         if (animated) {
-            UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: { () -> Void in
                 self.container.alpha = 0
                 }, completion: { (complete: Bool) -> Void in
                     self.container.removeFromSuperview()
@@ -80,12 +80,12 @@ class BlinkLoader: UIView {
         isRunning = false
     }
     
-    private func blinkLoop(view: UIView) {
-        UIView.animateWithDuration(1.2, delay: 0, options: .CurveLinear, animations: { () -> Void in
+    fileprivate func blinkLoop(_ view: UIView) {
+        UIView.animate(withDuration: 1.2, delay: 0, options: .curveLinear, animations: { () -> Void in
             view.backgroundColor = self.toColor
             }) { (complete:Bool) -> Void in
-                UIView.animateWithDuration(1.2, delay: 0, options: .CurveLinear, animations: { () -> Void in
-                    view.backgroundColor = UIColor.clearColor()
+                UIView.animate(withDuration: 1.2, delay: 0, options: .curveLinear, animations: { () -> Void in
+                    view.backgroundColor = UIColor.clear
                     }) { (complete:Bool) -> Void in
                         if (self.isRunning) {
                             self.blinkLoop(view)

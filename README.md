@@ -3,8 +3,9 @@ BlinkLoader
 A nice loader 
 
 <img src="https://raw.githubusercontent.com/giacomopiva/BlinkLoader/master/screenshot.jpg" alt="BlinkLoader screenshot" style="max-width:100%;">
+
 Installation
-==========
+=======
 To install the BlinkLoader in your App, drop in the BlinkLoader.swift file to your Xcode project. 
 Make sure to check "Copy items if needed".
 
